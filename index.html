@@ -1,36 +1,42 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#f5b7c8">
-  <title>上岸作戰計畫 ♡</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Google Fonts -->
+  <title>研究所上岸計畫♡</title>
+
+  <!-- 思源黑體 / 思源宋體 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;800&family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --pink: #e99aae;
-      --pink-dark: #c96f87;
-      --pink-light: #fbe6eb;
-      --pink-pale: #fff4f6;
-      --cream: #fffaf7;
+      --pink: #d96b91;
+      --pink-dark: #b94f75;
+      --pink-light: #fce9f0;
+      --pink-soft: #fff5f8;
+      --rose: #e9a8bb;
+
+      --text: #3d3438;
+      --text-light: #81757a;
       --white: #ffffff;
-      --black: #282326;
-      --gray: #777074;
-      --line: #eadcdf;
-      --green: #91ad91;
-      --shadow: 0 10px 30px rgba(121, 73, 87, 0.09);
-      --radius: 22px;
+      --border: #f0dfe5;
+      --bg: #fff9fb;
+
+      --green: #7d9d83;
+      --green-light: #edf5ee;
+
+      --yellow: #d5a94f;
+      --yellow-light: #fff8e7;
+
+      --shadow: 0 8px 28px rgba(160, 86, 111, 0.09);
+      --radius: 20px;
     }
 
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
     }
 
     html {
@@ -38,18 +44,20 @@
     }
 
     body {
-      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
       background:
-        radial-gradient(circle at 10% 10%, rgba(245, 183, 200, 0.18), transparent 28%),
-        radial-gradient(circle at 90% 20%, rgba(245, 183, 200, 0.14), transparent 25%),
-        var(--cream);
-      color: var(--black);
-      min-height: 100vh;
+        radial-gradient(circle at 10% 0%, #ffeef4 0, transparent 25%),
+        radial-gradient(circle at 90% 10%, #fff0f5 0, transparent 22%),
+        var(--bg);
+      color: var(--text);
+      font-family: "Noto Sans TC", sans-serif;
       line-height: 1.7;
     }
 
     button,
-    input {
+    input,
+    textarea,
+    select {
       font-family: inherit;
     }
 
@@ -58,483 +66,738 @@
     }
 
     .container {
-      width: min(1120px, calc(100% - 32px));
+      width: min(1180px, calc(100% - 32px));
       margin: 0 auto;
     }
 
-    /* ---------- HEADER ---------- */
+    /* =========================
+       Header
+    ========================= */
 
     header {
-      padding: 42px 0 24px;
+      padding: 38px 0 25px;
     }
 
-    .header-top {
+    .header-row {
       display: flex;
-      justify-content: space-between;
       align-items: flex-start;
+      justify-content: space-between;
       gap: 20px;
     }
 
     .eyebrow {
-      color: var(--pink-dark);
+      color: var(--pink);
       font-size: 13px;
       letter-spacing: 2px;
       font-weight: 700;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
 
     h1 {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(30px, 5vw, 48px);
-      line-height: 1.2;
-      letter-spacing: -1px;
+      font-size: clamp(30px, 5vw, 46px);
+      margin: 0;
+      letter-spacing: 1px;
+      color: #392f33;
     }
 
     .subtitle {
-      color: var(--gray);
-      margin-top: 8px;
+      color: var(--text-light);
+      margin: 7px 0 0;
       font-size: 14px;
     }
 
     .settings-btn {
-      width: 44px;
-      height: 44px;
+      border: 1px solid var(--border);
+      background: white;
+      color: var(--text);
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.75);
       font-size: 18px;
-      transition: 0.2s;
+      box-shadow: var(--shadow);
+      transition: .2s;
     }
 
     .settings-btn:hover {
-      transform: rotate(15deg);
-      background: var(--pink-light);
+      transform: rotate(25deg);
+      border-color: var(--rose);
     }
 
-    /* ---------- COUNTDOWN ---------- */
+    /* =========================
+       Preference Card
+    ========================= */
 
-    .countdown-card {
-      margin-top: 24px;
-      background: var(--black);
-      color: white;
-      border-radius: var(--radius);
-      padding: 28px 30px;
-      position: relative;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-    }
-
-    .countdown-card::after {
-      content: "♡";
-      position: absolute;
-      right: 28px;
-      bottom: -30px;
-      font-size: 150px;
-      color: rgba(255,255,255,0.045);
-      font-family: serif;
-    }
-
-    .countdown-label {
-      color: #f3c5d0;
-      font-size: 13px;
-      letter-spacing: 2px;
-      font-weight: 700;
-    }
-
-    .countdown {
-      display: flex;
-      align-items: baseline;
-      gap: 10px;
-      margin-top: 3px;
-    }
-
-    .countdown-number {
-      font-size: clamp(48px, 10vw, 76px);
-      line-height: 1;
-      font-weight: 800;
-      letter-spacing: -3px;
-    }
-
-    .countdown-days {
-      font-size: 18px;
-      font-weight: 600;
-    }
-
-    .exam-date {
-      margin-top: 10px;
-      color: #c9c3c5;
-      font-size: 13px;
-    }
-
-    /* ---------- GRID ---------- */
-
-    .dashboard {
+    .top-grid {
       display: grid;
-      grid-template-columns: 1.35fr 0.65fr;
+      grid-template-columns: 1fr 300px;
       gap: 18px;
-      margin-top: 18px;
+      margin-bottom: 18px;
     }
 
-    .card {
-      background: rgba(255,255,255,0.78);
-      border: 1px solid rgba(234,220,223,0.8);
+    .hero {
+      background: linear-gradient(135deg, #fff 0%, #fff5f8 100%);
+      border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 25px;
+      padding: 26px;
       box-shadow: var(--shadow);
-      backdrop-filter: blur(8px);
     }
 
-    .card.full {
-      grid-column: 1 / -1;
-    }
-
-    .card-title {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-bottom: 20px;
-    }
-
-    .card-title h2 {
-      font-size: 17px;
-      font-weight: 800;
-    }
-
-    .card-title span {
-      color: var(--pink-dark);
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    /* ---------- MANIFESTING ---------- */
-
-    .manifesting {
-      min-height: 210px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background: linear-gradient(135deg, #fff1f4, #fffaf7);
-      border-color: #f2d4dc;
-    }
-
-    .manifesting-small {
-      color: var(--pink-dark);
+    .quote-label {
       font-size: 12px;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
+      color: var(--pink);
       font-weight: 700;
-      margin-bottom: 13px;
+      margin-bottom: 6px;
     }
 
     #dailyQuote {
       font-family: "Noto Serif TC", serif;
-      font-size: clamp(22px, 4vw, 31px);
-      font-weight: 700;
-      line-height: 1.55;
-      max-width: 700px;
+      font-size: 21px;
+      font-weight: 600;
+      line-height: 1.7;
+      margin: 0;
     }
 
     .quote-date {
-      margin-top: 14px;
-      color: var(--gray);
+      color: var(--text-light);
       font-size: 12px;
+      margin-top: 12px;
     }
 
-    /* ---------- STUDY PROGRESS ---------- */
+    .preferences {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 21px;
+      box-shadow: var(--shadow);
+    }
 
-    .progress-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-end;
+    .section-mini-title {
+      font-weight: 800;
+      font-size: 14px;
       margin-bottom: 12px;
     }
 
-    .progress-big {
-      font-size: 34px;
-      font-weight: 800;
-      letter-spacing: -1px;
+    .choice {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 9px 11px;
+      background: var(--pink-soft);
+      border-radius: 11px;
+      margin-bottom: 7px;
+      font-size: 13px;
+      border: 1px solid transparent;
     }
 
-    .progress-percent {
-      color: var(--pink-dark);
-      font-weight: 800;
-      font-size: 18px;
+    .choice:first-of-type {
+      border-color: #f1c5d3;
     }
 
-    .progress-bar {
+    .choice-number {
+      color: var(--pink);
+      font-weight: 800;
+      min-width: 20px;
+    }
+
+    /* =========================
+       Countdown
+    ========================= */
+
+    .countdown {
+      margin-bottom: 18px;
+      border-radius: var(--radius);
+      background: #3f3438;
+      color: white;
+      padding: 25px 28px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      box-shadow: var(--shadow);
+    }
+
+    .countdown-left small {
+      display: block;
+      opacity: .65;
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      margin-bottom: 2px;
+    }
+
+    .countdown-left strong {
+      font-size: 15px;
+    }
+
+    .days-number {
+      font-size: clamp(42px, 8vw, 68px);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -2px;
+    }
+
+    .days-unit {
+      font-size: 14px;
+      margin-left: 5px;
+      opacity: .8;
+    }
+
+    /* =========================
+       Stats
+    ========================= */
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .stat-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 17px;
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      color: var(--text-light);
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+
+    .stat-value {
+      font-size: 25px;
+      font-weight: 800;
+      color: #45393e;
+    }
+
+    .stat-value span {
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+
+    /* =========================
+       Progress
+    ========================= */
+
+    .card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 23px;
+      box-shadow: var(--shadow);
+      margin-bottom: 18px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 17px;
+    }
+
+    .section-title h2 {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px;
+      margin: 0;
+    }
+
+    .section-title p {
+      margin: 2px 0 0;
+      color: var(--text-light);
+      font-size: 12px;
+    }
+
+    .progress-track {
       width: 100%;
-      height: 14px;
-      background: #f1e4e7;
+      height: 13px;
+      background: #f6e9ed;
       border-radius: 999px;
       overflow: hidden;
     }
 
-    .progress-fill {
+    .progress-bar {
       height: 100%;
       width: 0%;
-      background: linear-gradient(90deg, #e99aae, #d87f98);
-      border-radius: 999px;
-      transition: width 0.5s ease;
+      background: linear-gradient(90deg, #d96b91, #e6a5b9);
+      border-radius: inherit;
+      transition: width .5s ease;
     }
 
     .progress-info {
       display: flex;
       justify-content: space-between;
-      color: var(--gray);
-      font-size: 12px;
       margin-top: 9px;
+      color: var(--text-light);
+      font-size: 12px;
     }
 
-    .study-input-area {
-      display: grid;
-      grid-template-columns: 1fr auto;
+    .progress-info strong {
+      color: var(--pink-dark);
+    }
+
+    /* =========================
+       Forms
+    ========================= */
+
+    .input-row {
+      display: flex;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 17px;
     }
 
-    .study-input-area input {
+    input,
+    textarea,
+    select {
       width: 100%;
-      border: 1px solid var(--line);
-      background: white;
+      border: 1px solid var(--border);
+      background: #fffafb;
       border-radius: 12px;
-      padding: 12px 14px;
+      padding: 10px 12px;
+      color: var(--text);
       outline: none;
-      font-size: 14px;
+      transition: .2s;
     }
 
-    .study-input-area input:focus {
-      border-color: var(--pink);
-      box-shadow: 0 0 0 3px var(--pink-light);
+    input:focus,
+    textarea:focus,
+    select:focus {
+      border-color: var(--rose);
+      background: white;
+      box-shadow: 0 0 0 3px rgba(217, 107, 145, .08);
     }
 
-    .primary-btn {
-      border: none;
+    textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .hours-input {
+      max-width: 160px;
+    }
+
+    .btn {
+      border: 0;
+      border-radius: 11px;
+      padding: 10px 16px;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: .2s;
+    }
+
+    .btn-primary {
       background: var(--pink);
       color: white;
-      padding: 0 20px;
-      border-radius: 12px;
-      font-weight: 700;
-      transition: 0.2s;
     }
 
-    .primary-btn:hover {
+    .btn-primary:hover {
       background: var(--pink-dark);
       transform: translateY(-1px);
     }
 
-    .today-note {
+    .btn-light {
+      background: var(--pink-light);
+      color: var(--pink-dark);
+    }
+
+    .btn-light:hover {
+      background: #f7d8e2;
+    }
+
+    .btn-green {
+      background: var(--green-light);
+      color: #58765e;
+    }
+
+    .btn-danger {
+      background: #fff0f0;
+      color: #b35b5b;
+    }
+
+    .btn-small {
+      padding: 6px 10px;
       font-size: 12px;
-      color: var(--gray);
-      margin-top: 9px;
     }
 
-    /* ---------- FITNESS ---------- */
+    /* =========================
+       Two Columns
+    ========================= */
 
-    .fitness-count {
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    /* =========================
+       Calendar
+    ========================= */
+
+    .calendar-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .calendar-month {
+      font-family: "Noto Serif TC", serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 5px;
+    }
+
+    .calendar-nav button {
+      width: 33px;
+      height: 33px;
+      border: 1px solid var(--border);
+      background: white;
+      border-radius: 9px;
+      color: var(--text);
+    }
+
+    .calendar-nav button:hover {
+      background: var(--pink-soft);
+    }
+
+    .weekday-grid,
+    .calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 5px;
+    }
+
+    .weekday {
       text-align: center;
-      padding: 5px 0 15px;
+      font-size: 11px;
+      color: var(--text-light);
+      padding-bottom: 5px;
     }
 
-    .fitness-number {
-      font-size: 48px;
-      line-height: 1;
+    .day {
+      min-height: 82px;
+      border: 1px solid #f2e8eb;
+      background: #fff;
+      border-radius: 10px;
+      padding: 7px;
+      cursor: pointer;
+      position: relative;
+      transition: .18s;
+      overflow: hidden;
+    }
+
+    .day:hover {
+      border-color: var(--rose);
+      background: #fff8fa;
+      transform: translateY(-1px);
+    }
+
+    .day.other-month {
+      opacity: .3;
+      background: #fafafa;
+    }
+
+    .day.today {
+      border: 2px solid var(--pink);
+    }
+
+    .day-number {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .day-hours {
+      margin-top: 7px;
+      color: var(--pink-dark);
+      font-size: 11px;
       font-weight: 800;
     }
 
-    .fitness-target {
-      color: var(--gray);
-      font-size: 12px;
-      margin-top: 5px;
+    .day-progress {
+      margin-top: 2px;
+      color: #7b6b71;
+      font-size: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .workout-list {
+    .day-dots {
+      position: absolute;
+      bottom: 6px;
+      left: 7px;
+      display: flex;
+      gap: 4px;
+    }
+
+    .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--pink);
+    }
+
+    .dot.green {
+      background: var(--green);
+    }
+
+    .dot.yellow {
+      background: var(--yellow);
+    }
+
+    /* =========================
+       Fitness
+    ========================= */
+
+    .fitness-summary {
+      background: var(--pink-soft);
+      border-radius: 14px;
+      padding: 13px 15px;
+      margin-bottom: 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .fitness-count {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--pink-dark);
+    }
+
+    .fitness-checklist {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .fitness-day {
+      border: 1px solid var(--border);
+      border-radius: 11px;
+      padding: 9px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      user-select: none;
+      font-size: 12px;
+    }
+
+    .fitness-day.checked {
+      background: var(--green-light);
+      border-color: #cde0d0;
+      color: #58765e;
+    }
+
+    .fitness-day input {
+      width: auto;
+      accent-color: var(--green);
+    }
+
+    /* =========================
+       Concepts
+    ========================= */
+
+    .concept-add {
+      display: flex;
+      gap: 9px;
+      margin-bottom: 14px;
+    }
+
+    .concept-add input {
+      min-width: 0;
+    }
+
+    .concept-list {
       display: flex;
       flex-direction: column;
       gap: 9px;
     }
 
-    .workout-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 13px;
-      background: #fff7f8;
-      border: 1px solid #f0dfe3;
-      transition: 0.2s;
-    }
-
-    .workout-item:hover {
-      transform: translateX(2px);
-    }
-
-    .workout-item input {
-      display: none;
-    }
-
-    .fake-check {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      border: 1.5px solid #d7aab6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      flex-shrink: 0;
-      transition: 0.2s;
-    }
-
-    .workout-item input:checked + .fake-check {
-      background: var(--pink);
-      border-color: var(--pink);
-    }
-
-    .workout-item input:checked + .fake-check::after {
-      content: "✓";
-      font-size: 13px;
-      font-weight: 800;
-    }
-
-    .workout-text {
-      font-size: 13px;
-      font-weight: 600;
-    }
-
-    .workout-sub {
-      color: var(--gray);
-      font-size: 11px;
-      margin-left: auto;
-    }
-
-    .fitness-status {
-      margin-top: 14px;
-      text-align: center;
-      padding: 10px;
-      border-radius: 12px;
-      background: #f4eee9;
-      font-size: 12px;
-      font-weight: 700;
-      color: #766b65;
-    }
-
-    .fitness-status.done {
-      background: #eaf1e9;
-      color: #657d65;
-    }
-
-    /* ---------- LOG ---------- */
-
-    .log-form {
-      display: grid;
-      grid-template-columns: 1fr 1fr auto;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
-
-    .log-form input {
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      padding: 11px 13px;
-      background: white;
-      outline: none;
-    }
-
-    .log-form input:focus {
-      border-color: var(--pink);
-    }
-
-    .log-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    .log-table th {
-      color: var(--gray);
-      font-size: 11px;
-      font-weight: 600;
-      text-align: left;
-      padding: 8px 6px;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .log-table td {
-      padding: 12px 6px;
-      border-bottom: 1px solid #f2e9eb;
-    }
-
-    .log-table tr:last-child td {
-      border-bottom: none;
-    }
-
-    .delete-btn {
-      border: none;
-      background: transparent;
-      color: #b99ba2;
-      font-size: 12px;
-    }
-
-    .delete-btn:hover {
-      color: #b95770;
-    }
-
-    .empty-log {
-      text-align: center;
-      padding: 25px 0;
-      color: #a3999c;
-      font-size: 13px;
-    }
-
-    /* ---------- WEEKLY STATS ---------- */
-
-    .weekly-summary {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .mini-stat {
-      background: #fff7f8;
+    .concept-item {
+      border: 1px solid var(--border);
       border-radius: 14px;
-      padding: 15px;
-      text-align: center;
+      padding: 13px;
+      background: #fffafb;
     }
 
-    .mini-stat-number {
-      font-size: 23px;
+    .concept-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .concept-title {
       font-weight: 800;
+      font-size: 14px;
     }
 
-    .mini-stat-label {
-      color: var(--gray);
-      font-size: 11px;
+    .concept-date {
+      font-size: 10px;
+      color: var(--text-light);
       margin-top: 2px;
     }
 
-    /* ---------- FOOTER ---------- */
+    .concept-content {
+      color: #75686e;
+      font-size: 12px;
+      margin-top: 7px;
+      white-space: pre-wrap;
+    }
 
-    footer {
-      text-align: center;
-      color: #a59a9d;
+    .concept-actions {
+      display: flex;
+      gap: 6px;
+      margin-top: 9px;
+    }
+
+    .status-badge {
+      display: inline-block;
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--yellow-light);
+      color: #9a7a32;
+      white-space: nowrap;
+    }
+
+    .status-badge.done {
+      background: var(--green-light);
+      color: #5d7e64;
+    }
+
+    .history-toggle {
+      border: 0;
+      background: transparent;
+      color: var(--text-light);
       font-size: 11px;
-      padding: 35px 0 45px;
+      padding: 5px 0;
+      margin-top: 13px;
     }
 
-    footer strong {
+    /* =========================
+       Vocabulary
+    ========================= */
+
+    .vocab-card {
+      background: linear-gradient(135deg, #fff8fa, #fff);
+    }
+
+    .vocab-tag {
+      display: inline-block;
+      background: #3f3438;
+      color: white;
+      border-radius: 999px;
+      padding: 3px 9px;
+      font-size: 9px;
+      letter-spacing: .5px;
+      margin-bottom: 9px;
+    }
+
+    .word {
+      font-family: "Noto Serif TC", serif;
+      font-size: 31px;
+      font-weight: 700;
+      color: #3c3035;
+      margin-bottom: 1px;
+    }
+
+    .pronunciation {
+      color: var(--text-light);
+      font-size: 11px;
+      margin-bottom: 9px;
+    }
+
+    .meaning {
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .example {
+      margin-top: 10px;
+      padding: 10px 12px;
+      border-left: 3px solid var(--rose);
+      background: white;
+      border-radius: 0 9px 9px 0;
+      font-size: 12px;
+      color: #685b61;
+    }
+
+    .example-zh {
+      margin-top: 3px;
+      color: var(--text-light);
+    }
+
+    .vocab-note {
+      color: var(--text-light);
+      font-size: 10px;
+      margin-top: 10px;
+    }
+
+    /* =========================
+       Logs
+    ========================= */
+
+    .log-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .log-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 11px 13px;
+      border: 1px solid #f1e5e9;
+      border-radius: 11px;
+      background: #fff;
+    }
+
+    .log-date {
+      font-size: 11px;
+      color: var(--text-light);
+    }
+
+    .log-hours {
+      font-weight: 800;
       color: var(--pink-dark);
+      font-size: 13px;
     }
 
-    /* ---------- MODAL ---------- */
+    .empty {
+      color: var(--text-light);
+      font-size: 12px;
+      padding: 15px 0;
+      text-align: center;
+    }
+
+    /* =========================
+       Modal
+    ========================= */
 
     .modal-overlay {
       position: fixed;
       inset: 0;
-      background: rgba(40, 35, 38, 0.38);
+      background: rgba(45, 35, 39, .42);
       display: none;
       align-items: center;
       justify-content: center;
-      padding: 20px;
-      z-index: 100;
+      padding: 18px;
+      z-index: 1000;
+      backdrop-filter: blur(3px);
     }
 
     .modal-overlay.show {
@@ -542,142 +805,173 @@
     }
 
     .modal {
-      background: var(--cream);
-      width: min(440px, 100%);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: 0 25px 70px rgba(0,0,0,0.18);
+      width: min(500px, 100%);
+      background: white;
+      border-radius: 22px;
+      padding: 24px;
+      box-shadow: 0 20px 70px rgba(50, 30, 40, .2);
+      max-height: 90vh;
+      overflow-y: auto;
     }
 
-    .modal h3 {
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 17px;
+    }
+
+    .modal-header h3 {
       font-family: "Noto Serif TC", serif;
-      font-size: 22px;
-      margin-bottom: 20px;
+      margin: 0;
+      font-size: 20px;
     }
 
-    .setting-group {
-      margin-bottom: 16px;
+    .close-btn {
+      border: 0;
+      background: #f7f0f2;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      color: var(--text);
     }
 
-    .setting-group label {
+    .form-group {
+      margin-bottom: 13px;
+    }
+
+    .form-group label {
       display: block;
       font-size: 12px;
       font-weight: 700;
-      color: var(--gray);
-      margin-bottom: 6px;
+      margin-bottom: 5px;
     }
 
-    .setting-group input {
-      width: 100%;
-      border: 1px solid var(--line);
-      border-radius: 11px;
-      padding: 11px 13px;
-      background: white;
-      outline: none;
-    }
-
-    .modal-buttons {
+    .modal-actions {
       display: flex;
-      gap: 9px;
-      margin-top: 22px;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 17px;
     }
 
-    .secondary-btn {
-      flex: 1;
-      border: 1px solid var(--line);
-      background: white;
-      color: var(--black);
-      padding: 11px;
-      border-radius: 11px;
-      font-weight: 600;
-    }
-
-    .secondary-btn:hover {
-      background: var(--pink-pale);
-    }
-
-    .danger-btn {
-      margin-top: 14px;
-      width: 100%;
-      border: none;
-      background: #f3e5e8;
-      color: #a35f70;
-      padding: 10px;
-      border-radius: 11px;
-      font-size: 12px;
-      font-weight: 600;
-    }
-
-    /* ---------- TOAST ---------- */
+    /* =========================
+       Toast
+    ========================= */
 
     .toast {
       position: fixed;
-      bottom: 25px;
       left: 50%;
-      transform: translate(-50%, 100px);
-      background: var(--black);
+      bottom: 25px;
+      transform: translateX(-50%) translateY(20px);
+      background: #3f3438;
       color: white;
-      padding: 11px 18px;
+      padding: 10px 17px;
       border-radius: 999px;
       font-size: 12px;
-      z-index: 200;
       opacity: 0;
-      transition: 0.3s;
       pointer-events: none;
-      white-space: nowrap;
+      transition: .25s;
+      z-index: 2000;
     }
 
     .toast.show {
       opacity: 1;
-      transform: translate(-50%, 0);
+      transform: translateX(-50%) translateY(0);
     }
 
-    /* ---------- MOBILE ---------- */
+    footer {
+      text-align: center;
+      color: #a7979e;
+      font-size: 11px;
+      padding: 15px 0 35px;
+    }
 
-    @media (max-width: 760px) {
+    /* =========================
+       Responsive
+    ========================= */
+
+    @media (max-width: 850px) {
+      .top-grid,
+      .two-col {
+        grid-template-columns: 1fr;
+      }
+
+      .stats {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
       .container {
-        width: min(100% - 22px, 1120px);
+        width: min(100% - 20px, 1180px);
       }
 
       header {
-        padding-top: 28px;
+        padding-top: 25px;
       }
 
-      .dashboard {
-        grid-template-columns: 1fr;
+      .header-row {
+        align-items: center;
       }
 
-      .card.full {
-        grid-column: auto;
-      }
-
-      .card {
-        padding: 20px;
-      }
-
-      .countdown-card {
-        padding: 24px 22px;
-      }
-
-      .log-form {
-        grid-template-columns: 1fr;
-      }
-
-      .log-form .primary-btn {
-        height: 45px;
-      }
-
-      .weekly-summary {
-        grid-template-columns: 1fr 1fr 1fr;
-      }
-
-      .log-table {
+      .subtitle {
         font-size: 12px;
       }
 
-      .log-table th:nth-child(3),
-      .log-table td:nth-child(3) {
+      .hero,
+      .card,
+      .preferences {
+        padding: 18px;
+      }
+
+      .countdown {
+        padding: 20px;
+      }
+
+      .stats {
+        gap: 8px;
+      }
+
+      .stat-card {
+        padding: 13px;
+      }
+
+      .stat-value {
+        font-size: 21px;
+      }
+
+      .day {
+        min-height: 66px;
+        padding: 5px;
+      }
+
+      .day-hours {
+        margin-top: 3px;
+      }
+
+      .day-progress {
         display: none;
+      }
+
+      .weekday-grid,
+      .calendar-grid {
+        gap: 3px;
+      }
+
+      .input-row {
+        flex-direction: column;
+      }
+
+      .hours-input {
+        max-width: none;
+      }
+
+      .concept-add {
+        flex-direction: column;
+      }
+
+      .fitness-checklist {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -685,277 +979,901 @@
 
 <body>
 
-  <div class="container">
+  <main class="container">
 
-    <!-- HEADER -->
+    <!-- =========================
+         HEADER
+    ========================= -->
     <header>
-      <div class="header-top">
+      <div class="header-row">
         <div>
-          <div class="eyebrow">GRADUATE SCHOOL · 2027</div>
-          <h1>上岸作戰計畫 ♡</h1>
-          <p class="subtitle">今天也離那張錄取通知更近一點。</p>
+          <div class="eyebrow">GRADUATE SCHOOL · STUDY PROJECT</div>
+          <h1>研究所上岸計畫♡</h1>
+          <p class="subtitle">不是來試試看的，是來上岸的。</p>
         </div>
 
-        <button class="settings-btn" onclick="openSettings()" aria-label="設定">
+        <button class="settings-btn" onclick="openSettings()" title="設定">
           ⚙︎
         </button>
       </div>
-
-      <!-- COUNTDOWN -->
-      <section class="countdown-card">
-        <div class="countdown-label">COUNTDOWN TO EXAM</div>
-
-        <div class="countdown">
-          <div class="countdown-number" id="countdownNumber">--</div>
-          <div class="countdown-days">DAYS</div>
-        </div>
-
-        <div class="exam-date">
-          暫定考試日 · <span id="examDateDisplay">2027 / 02 / 01</span>
-        </div>
-      </section>
     </header>
 
+    <!-- =========================
+         QUOTE + PREFERENCE
+    ========================= -->
+    <section class="top-grid">
 
-    <!-- DASHBOARD -->
-    <main class="dashboard">
-
-      <!-- DAILY MANIFESTING -->
-      <section class="card manifesting full">
-        <div class="manifesting-small">TODAY'S MANIFESTING ✦</div>
-
-        <div id="dailyQuote">
-          你太強了姐，這點都被你讀完。
-        </div>
-
+      <div class="hero">
+        <div class="quote-label">TODAY'S MANIFEST</div>
+        <p id="dailyQuote"></p>
         <div class="quote-date" id="quoteDate"></div>
-      </section>
+      </div>
 
+      <div class="preferences">
+        <div class="section-mini-title">♡ 志願排序</div>
 
-      <!-- STUDY PROGRESS -->
-      <section class="card">
-        <div class="card-title">
-          <h2>📚 課程進度</h2>
-          <span>總課程 84.1 hr</span>
+        <div class="choice">
+          <span class="choice-number">①</span>
+          <span>台大分醫所</span>
         </div>
 
-        <div class="progress-header">
-          <div>
-            <div class="progress-big">
-              <span id="completedHours">0</span>
-              <span style="font-size:15px;font-weight:500;color:#777074;">hr</span>
+        <div class="choice">
+          <span class="choice-number">②</span>
+          <span>清大分醫所</span>
+        </div>
+
+        <div class="choice">
+          <span class="choice-number">③</span>
+          <span>成大分醫所</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         COUNTDOWN
+    ========================= -->
+    <section class="countdown">
+      <div class="countdown-left">
+        <small>THE DAY OF EXAM</small>
+        <strong id="examDateText">2027 / 02 / 01</strong>
+      </div>
+
+      <div>
+        <span class="days-number" id="countdownDays">145</span>
+        <span class="days-unit">DAYS</span>
+      </div>
+    </section>
+
+    <!-- =========================
+         STATS
+    ========================= -->
+    <section class="stats">
+
+      <div class="stat-card">
+        <div class="stat-label">已讀</div>
+        <div class="stat-value">
+          <span id="completedHours">0</span>
+          <span>hr</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">剩餘課程</div>
+        <div class="stat-value">
+          <span id="remainingHours">84.1</span>
+          <span>hr</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">課程完成率</div>
+        <div class="stat-value">
+          <span id="progressPercent">0</span>
+          <span>%</span>
+        </div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-label">本週運動</div>
+        <div class="stat-value">
+          <span id="workoutCount">0</span>
+          <span>/ 3 次</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         COURSE PROGRESS
+    ========================= -->
+    <section class="card">
+
+      <div class="section-title">
+        <div>
+          <h2>📚 課程進度</h2>
+          <p>84.1 小時全部吃掉。</p>
+        </div>
+      </div>
+
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+
+      <div class="progress-info">
+        <span>已完成 <strong id="progressLeft">0 hr</strong></span>
+        <span>目標 <strong id="progressTotal">84.1 hr</strong></span>
+      </div>
+
+      <div class="input-row">
+        <input
+          id="todayHours"
+          class="hours-input"
+          type="number"
+          min="0"
+          step="0.1"
+          placeholder="今天讀了幾小時？"
+        />
+
+        <button class="btn btn-primary" onclick="addTodayStudy()">
+          ＋ 紀錄今天
+        </button>
+      </div>
+
+    </section>
+
+    <!-- =========================
+         CALENDAR
+    ========================= -->
+    <section class="card">
+
+      <div class="section-title">
+        <div>
+          <h2>🗓️ Study Calendar</h2>
+          <p>點日期，就可以留下今天的痕跡。</p>
+        </div>
+
+        <button class="btn btn-light btn-small" onclick="goToCurrentMonth()">
+          今天
+        </button>
+      </div>
+
+      <div class="calendar-head">
+
+        <button class="btn btn-light btn-small" onclick="changeMonth(-1)">
+          ‹ 上個月
+        </button>
+
+        <div class="calendar-month" id="calendarMonth"></div>
+
+        <button class="btn btn-light btn-small" onclick="changeMonth(1)">
+          下個月 ›
+        </button>
+
+      </div>
+
+      <div class="weekday-grid">
+        <div class="weekday">一</div>
+        <div class="weekday">二</div>
+        <div class="weekday">三</div>
+        <div class="weekday">四</div>
+        <div class="weekday">五</div>
+        <div class="weekday">六</div>
+        <div class="weekday">日</div>
+      </div>
+
+      <div class="calendar-grid" id="calendarGrid"></div>
+
+    </section>
+
+    <!-- =========================
+         TWO COLUMN
+    ========================= -->
+    <section class="two-col">
+
+      <!-- LEFT -->
+      <div>
+
+        <!-- CONCEPT MISCONCEPTIONS -->
+        <section class="card">
+
+          <div class="section-title">
+            <div>
+              <h2>🧠 觀念誤區</h2>
+              <p>不會的東西不要裝會，全部抓出來。</p>
             </div>
           </div>
 
-          <div class="progress-percent" id="progressPercent">
-            0%
+          <div class="concept-add">
+
+            <input
+              id="conceptTitle"
+              type="text"
+              placeholder="例如：ACEI → Hyperkalemia"
+            />
+
+            <button class="btn btn-primary" onclick="openConceptModal()">
+              ＋ 新增
+            </button>
+
           </div>
-        </div>
 
-        <div class="progress-bar">
-          <div class="progress-fill" id="progressFill"></div>
-        </div>
+          <div id="activeConcepts" class="concept-list"></div>
 
-        <div class="progress-info">
-          <span>已完成 <span id="completedHoursSmall">0</span> hr</span>
-          <span>剩餘 <span id="remainingHours">84.1</span> hr</span>
-        </div>
-
-        <div class="study-input-area">
-          <input
-            type="number"
-            id="todayHours"
-            min="0"
-            max="24"
-            step="0.1"
-            placeholder="今天讀了幾小時？例如 3.5"
+          <button
+            class="history-toggle"
+            onclick="toggleConceptHistory()"
+            id="historyToggle"
           >
-
-          <button class="primary-btn" onclick="addTodayStudy()">
-            記錄
+            查看已釐清紀錄 ↓
           </button>
-        </div>
 
-        <div class="today-note">
-          今天：<span id="todayLogged">尚未記錄</span>
-        </div>
-      </section>
+          <div
+            id="conceptHistory"
+            class="concept-list"
+            style="display:none;"
+          ></div>
 
+        </section>
 
-      <!-- FITNESS -->
-      <section class="card">
-        <div class="card-title">
-          <h2>🏋🏻‍♀️ 本週健身</h2>
-          <span id="weekRange"></span>
-        </div>
+        <!-- FITNESS -->
+        <section class="card">
 
-        <div class="fitness-count">
-          <div>
-            <span class="fitness-number" id="fitnessCount">0</span>
-            <span style="font-size:14px;color:#777074;"> / 3</span>
+          <div class="section-title">
+            <div>
+              <h2>🏋🏻‍♀️ 每週運動</h2>
+              <p>至少 3 次，每次 ≥ 1 小時。</p>
+            </div>
           </div>
 
-          <div class="fitness-target">
-            每週至少 3 練 · 每次至少 1 小時
-          </div>
-        </div>
+          <div class="fitness-summary">
+            <div>
+              <strong>本週完成</strong>
+              <div style="font-size:11px;color:#8b7b81;">
+                動一下，腦袋比較會讀書。
+              </div>
+            </div>
 
-        <div class="workout-list">
-
-          <label class="workout-item">
-            <input type="checkbox" id="workout1" onchange="updateFitness()">
-            <span class="fake-check"></span>
-            <span class="workout-text">Workout 01</span>
-            <span class="workout-sub">1 hr+</span>
-          </label>
-
-          <label class="workout-item">
-            <input type="checkbox" id="workout2" onchange="updateFitness()">
-            <span class="fake-check"></span>
-            <span class="workout-text">Workout 02</span>
-            <span class="workout-sub">1 hr+</span>
-          </label>
-
-          <label class="workout-item">
-            <input type="checkbox" id="workout3" onchange="updateFitness()">
-            <span class="fake-check"></span>
-            <span class="workout-text">Workout 03</span>
-            <span class="workout-sub">1 hr+</span>
-          </label>
-
-        </div>
-
-        <div class="fitness-status" id="fitnessStatus">
-          還差一點，姐，去練。
-        </div>
-      </section>
-
-
-      <!-- WEEKLY SUMMARY -->
-      <section class="card">
-        <div class="card-title">
-          <h2>✦ 本週戰績</h2>
-          <span>KEEP GOING</span>
-        </div>
-
-        <div class="weekly-summary">
-
-          <div class="mini-stat">
-            <div class="mini-stat-number" id="weeklyHours">0</div>
-            <div class="mini-stat-label">本週讀書 hr</div>
+            <div>
+              <span class="fitness-count" id="fitnessCountBig">0</span>
+              <span style="font-size:12px;color:#8b7b81;"> / 3</span>
+            </div>
           </div>
 
-          <div class="mini-stat">
-            <div class="mini-stat-number" id="weeklyDays">0</div>
-            <div class="mini-stat-label">讀書天數</div>
+          <div id="fitnessChecklist" class="fitness-checklist"></div>
+
+        </section>
+
+      </div>
+
+      <!-- RIGHT -->
+      <div>
+
+        <!-- VOCAB -->
+        <section class="card vocab-card">
+
+          <div class="section-title">
+            <div>
+              <h2>📖 Daily English</h2>
+              <p>IELTS / TOEFL High-Frequency Vocabulary</p>
+            </div>
           </div>
 
-          <div class="mini-stat">
-            <div class="mini-stat-number" id="weeklyWorkouts">0</div>
-            <div class="mini-stat-label">健身次數</div>
+          <div id="vocabContent"></div>
+
+        </section>
+
+        <!-- DAILY PROGRESS -->
+        <section class="card">
+
+          <div class="section-title">
+            <div>
+              <h2>✦ 今日進度</h2>
+              <p>今天到底幹了什麼。</p>
+            </div>
           </div>
 
+          <div id="todayProgressDisplay"></div>
+
+        </section>
+
+      </div>
+
+    </section>
+
+    <!-- =========================
+         HISTORY
+    ========================= -->
+    <section class="card">
+
+      <div class="section-title">
+        <div>
+          <h2>📜 讀書紀錄</h2>
+          <p>所有努力都會留下來。</p>
         </div>
-      </section>
+      </div>
 
+      <div id="logList" class="log-list"></div>
 
-      <!-- STUDY LOG -->
-      <section class="card full">
-
-        <div class="card-title">
-          <h2>📝 學習紀錄</h2>
-          <span>每一天都算數</span>
-        </div>
-
-        <div class="log-form">
-          <input type="date" id="logDate">
-          <input
-            type="number"
-            id="logHours"
-            min="0"
-            max="24"
-            step="0.1"
-            placeholder="讀書時數"
-          >
-          <button class="primary-btn" onclick="addLog()">
-            ＋ 新增紀錄
-          </button>
-        </div>
-
-        <div id="logContainer">
-          <div class="empty-log">
-            還沒有紀錄。<br>
-            今天開始寫第一筆吧 ♡
-          </div>
-        </div>
-
-      </section>
-
-    </main>
-
+    </section>
 
     <footer>
-      made for your <strong>上岸 era</strong> ♡<br>
-      不是在焦慮，是在累積錄取的可能性。
+      研究所上岸計畫♡ · 讀書不是為了證明自己，是為了拿到想要的結果。
     </footer>
+
+  </main>
+
+  <!-- =========================
+       DAILY DATE MODAL
+  ========================= -->
+  <div class="modal-overlay" id="dailyModal">
+
+    <div class="modal">
+
+      <div class="modal-header">
+        <h3 id="dailyModalTitle">📅 今日進度</h3>
+
+        <button class="close-btn" onclick="closeModal('dailyModal')">
+          ×
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label>新增讀書時數</label>
+
+        <input
+          id="calendarHours"
+          type="number"
+          min="0"
+          step="0.1"
+          placeholder="例如 3.5"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>今天進度</label>
+
+        <textarea
+          id="calendarProgress"
+          placeholder="例如：內外科 Ch.3～Ch.5，看完心血管系統"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>備註</label>
+
+        <textarea
+          id="calendarNote"
+          placeholder="例如：今天超有精神，讀書速度很快。"
+        ></textarea>
+      </div>
+
+      <div id="selectedDateSummary"
+           style="font-size:11px;color:#897980;background:#fff6f8;padding:10px;border-radius:10px;">
+      </div>
+
+      <div class="modal-actions">
+        <button class="btn btn-light" onclick="closeModal('dailyModal')">
+          取消
+        </button>
+
+        <button class="btn btn-primary" onclick="saveDailyRecord()">
+          儲存
+        </button>
+      </div>
+
+    </div>
 
   </div>
 
+  <!-- =========================
+       CONCEPT MODAL
+  ========================= -->
+  <div class="modal-overlay" id="conceptModal">
 
-  <!-- SETTINGS MODAL -->
+    <div class="modal">
+
+      <div class="modal-header">
+        <h3>🧠 新增觀念誤區</h3>
+
+        <button class="close-btn" onclick="closeModal('conceptModal')">
+          ×
+        </button>
+      </div>
+
+      <div class="form-group">
+        <label>觀念／問題</label>
+
+        <input
+          id="conceptModalTitle"
+          type="text"
+          placeholder="例如：Warfarin 和 Heparin 到底差在哪"
+        />
+      </div>
+
+      <div class="form-group">
+        <label>詳細內容</label>
+
+        <textarea
+          id="conceptModalContent"
+          placeholder="把你卡住的地方寫下來，之後回來重新釐清。"
+        ></textarea>
+      </div>
+
+      <div class="form-group">
+        <label>分類</label>
+
+        <select id="conceptCategory">
+          <option value="基礎醫學">基礎醫學</option>
+          <option value="內外科">內外科</option>
+          <option value="產兒">產兒</option>
+          <option value="精神">精神</option>
+          <option value="基護／行政">基護／行政</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-light"
+          onclick="closeModal('conceptModal')"
+        >
+          取消
+        </button>
+
+        <button
+          class="btn btn-primary"
+          onclick="saveConcept()"
+        >
+          加入待釐清
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- =========================
+       SETTINGS MODAL
+  ========================= -->
   <div class="modal-overlay" id="settingsModal">
 
     <div class="modal">
 
-      <h3>設定你的作戰計畫</h3>
+      <div class="modal-header">
+        <h3>⚙︎ 計畫設定</h3>
 
-      <div class="setting-group">
+        <button class="close-btn" onclick="closeModal('settingsModal')">
+          ×
+        </button>
+      </div>
+
+      <div class="form-group">
         <label>考試日期</label>
-        <input type="date" id="examDateInput">
-      </div>
 
-      <div class="setting-group">
-        <label>總課程時數</label>
         <input
-          type="number"
-          id="totalHoursInput"
-          min="1"
-          step="0.1"
-        >
+          id="settingsExamDate"
+          type="date"
+        />
       </div>
 
-      <div class="modal-buttons">
-        <button class="secondary-btn" onclick="closeSettings()">
+      <div class="form-group">
+        <label>總課程時數</label>
+
+        <input
+          id="settingsTotalHours"
+          type="number"
+          min="0"
+          step="0.1"
+        />
+      </div>
+
+      <div
+        style="
+          background:#fff7f9;
+          color:#7c6b72;
+          font-size:11px;
+          padding:11px;
+          border-radius:11px;
+          margin-top:8px;
+        "
+      >
+        ♡ 修改這裡不會刪除你的讀書紀錄、運動紀錄或觀念誤區。
+      </div>
+
+      <div class="modal-actions">
+
+        <button
+          class="btn btn-light"
+          onclick="closeModal('settingsModal')"
+        >
           取消
         </button>
 
-        <button class="primary-btn" style="padding:11px 20px;" onclick="saveSettings()">
+        <button
+          class="btn btn-primary"
+          onclick="saveSettings()"
+        >
           儲存設定
         </button>
+
       </div>
 
-      <button class="danger-btn" onclick="resetAllData()">
-        清除全部學習資料
+      <hr style="border:0;border-top:1px solid #f0e3e7;margin:22px 0 15px;">
+
+      <button
+        class="btn btn-danger"
+        style="width:100%;"
+        onclick="resetAllData()"
+      >
+        🗑️ 清除全部資料
       </button>
 
     </div>
+
   </div>
 
-
-  <!-- TOAST -->
   <div class="toast" id="toast"></div>
 
-
   <script>
+    /* =====================================================
+       DATA
+       ===================================================== */
+
+    const STORAGE_KEY = "studyDashboardData";
+
+    const DEFAULT_DATA = {
+      totalHours: 84.1,
+      examDate: "2027-02-01",
+      logs: [],
+      workouts: {},
+      concepts: [],
+      dailyProgress: {}
+    };
+
+    /*
+      這裡非常重要：
+
+      舊版網站也是使用 studyDashboardData。
+      所以新版不會直接覆蓋舊資料，而是：
+      1. 先讀舊資料
+      2. 保留舊有欄位
+      3. 新增 concepts / dailyProgress
+    */
+
+    function loadData() {
+
+      try {
+
+        const saved = JSON.parse(
+          localStorage.getItem(STORAGE_KEY)
+        );
+
+        if (!saved) {
+          return structuredClone(DEFAULT_DATA);
+        }
+
+        return {
+          totalHours:
+            typeof saved.totalHours === "number"
+              ? saved.totalHours
+              : DEFAULT_DATA.totalHours,
+
+          examDate:
+            saved.examDate ||
+            DEFAULT_DATA.examDate,
+
+          logs:
+            Array.isArray(saved.logs)
+              ? saved.logs
+              : [],
+
+          workouts:
+            saved.workouts &&
+            typeof saved.workouts === "object"
+              ? saved.workouts
+              : {},
+
+          concepts:
+            Array.isArray(saved.concepts)
+              ? saved.concepts
+              : [],
+
+          dailyProgress:
+            saved.dailyProgress &&
+            typeof saved.dailyProgress === "object"
+              ? saved.dailyProgress
+              : {}
+        };
+
+      } catch (error) {
+
+        console.error(error);
+
+        return structuredClone(DEFAULT_DATA);
+      }
+    }
+
+    let data = loadData();
+
+    let calendarDate = new Date();
+
+    let selectedDate = null;
 
     /* =====================================================
-       基本設定
-    ===================================================== */
+       SAVE
+       ===================================================== */
 
-    const DEFAULT_TOTAL_HOURS = 84.1;
-    const DEFAULT_EXAM_DATE = "2027-02-01";
+    function saveData() {
+
+      localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(data)
+      );
+
+    }
+
+    /* =====================================================
+       DATE HELPERS
+       ===================================================== */
+
+    function getLocalDateString(date = new Date()) {
+
+      const y = date.getFullYear();
+
+      const m = String(
+        date.getMonth() + 1
+      ).padStart(2, "0");
+
+      const d = String(
+        date.getDate()
+      ).padStart(2, "0");
+
+      return `${y}-${m}-${d}`;
+    }
+
+    function formatDate(dateString) {
+
+      const [y, m, d] = dateString.split("-");
+
+      return `${y}/${m}/${d}`;
+
+    }
+
+    function getWeekStart(date = new Date()) {
+
+      const d = new Date(date);
+
+      const day = d.getDay();
+
+      const diff =
+        day === 0
+          ? -6
+          : 1 - day;
+
+      d.setDate(
+        d.getDate() + diff
+      );
+
+      return getLocalDateString(d);
+
+    }
+
+    function getWeekDates() {
+
+      const start = new Date(
+        getWeekStart()
+      );
+
+      const dates = [];
+
+      for (let i = 0; i < 7; i++) {
+
+        const d = new Date(start);
+
+        d.setDate(
+          start.getDate() + i
+        );
+
+        dates.push(
+          getLocalDateString(d)
+        );
+
+      }
+
+      return dates;
+    }
+
+    /* =====================================================
+       STUDY HOURS
+       ===================================================== */
+
+    function getCompletedHours() {
+
+      return data.logs.reduce(
+        (sum, log) =>
+          sum + Number(log.hours || 0),
+        0
+      );
+
+    }
+
+    function getHoursForDate(dateString) {
+
+      return data.logs
+        .filter(
+          log => log.date === dateString
+        )
+        .reduce(
+          (sum, log) =>
+            sum + Number(log.hours || 0),
+          0
+        );
+
+    }
+
+    function addStudyLog(date, hours) {
+
+      if (!hours || hours <= 0) {
+        return;
+      }
+
+      data.logs.push({
+        id:
+          Date.now() +
+          Math.random(),
+
+        date: date,
+
+        hours: Number(hours)
+      });
+
+      saveData();
+
+    }
+
+    function addTodayStudy() {
+
+      const input =
+        document.getElementById(
+          "todayHours"
+        );
+
+      const hours =
+        Number(input.value);
+
+      if (!hours || hours <= 0) {
+
+        showToast(
+          "姐今天讀書幾小時先報一下 😭"
+        );
+
+        return;
+      }
+
+      addStudyLog(
+        getLocalDateString(),
+        hours
+      );
+
+      input.value = "";
+
+      renderAll();
+
+      showToast(
+        `已記錄 ${hours} 小時 ♡`
+      );
+
+    }
+
+    /* =====================================================
+       PROGRESS
+       ===================================================== */
+
+    function renderProgress() {
+
+      const completed =
+        getCompletedHours();
+
+      const total =
+        Number(data.totalHours) || 0;
+
+      const remaining =
+        Math.max(
+          total - completed,
+          0
+        );
+
+      const percent =
+        total > 0
+          ? Math.min(
+              (completed / total) * 100,
+              100
+            )
+          : 0;
+
+      document.getElementById(
+        "completedHours"
+      ).textContent =
+        completed.toFixed(1);
+
+      document.getElementById(
+        "remainingHours"
+      ).textContent =
+        remaining.toFixed(1);
+
+      document.getElementById(
+        "progressPercent"
+      ).textContent =
+        percent.toFixed(1);
+
+      document.getElementById(
+        "progressBar"
+      ).style.width =
+        percent + "%";
+
+      document.getElementById(
+        "progressLeft"
+      ).textContent =
+        completed.toFixed(1) + " hr";
+
+      document.getElementById(
+        "progressTotal"
+      ).textContent =
+        total.toFixed(1) + " hr";
+
+    }
+
+    /* =====================================================
+       COUNTDOWN
+       ===================================================== */
+
+    function renderCountdown() {
+
+      const exam =
+        new Date(
+          data.examDate + "T00:00:00"
+        );
+
+      const today =
+        new Date();
+
+      const todayMidnight =
+        new Date(
+          today.getFullYear(),
+          today.getMonth(),
+          today.getDate()
+        );
+
+      const diff =
+        exam - todayMidnight;
+
+      const days =
+        Math.ceil(
+          diff /
+          (1000 * 60 * 60 * 24)
+        );
+
+      document.getElementById(
+        "countdownDays"
+      ).textContent =
+        Math.max(days, 0);
+
+      document.getElementById(
+        "examDateText"
+      ).textContent =
+        data.examDate.replaceAll("-", " / ");
+
+    }
+
+    /* =====================================================
+       DAILY QUOTE
+       ===================================================== */
 
     const quotes = [
+
       "你太強了姐，這點都被你讀完。",
       "差不多要贏了喔。",
       "你殺瘋了今天⋯",
@@ -964,373 +1882,1589 @@
       "不是在讀書，是在收割。",
       "你已經讀到這裡了，現在退出很不划算。",
       "錄取通知已經在路上了，妳先把書讀完。",
-      "這不是苦，是未來的妳在謝謝現在的妳。",
-      "姐今天也很會，繼續。",
-      "你以為你在累積時數，其實你在累積自由。",
-      "再一點點，真的快到了。",
-      "今天的妳也沒有放棄自己。",
-      "很抱歉，今天也要成為比昨天更強的人。",
-      "這種程度也想阻止妳上岸？想太多。",
       "妳不是來試試看的，妳是來上岸的。",
-      "讀就對了，剩下的交給時間。",
-      "未來的妳會說：還好我那時候有撐住。",
       "今天多讀一點，考場就多一點底氣。",
-      "姐，妳現在的每一頁都在靠近那個結果。",
-      "慢慢來沒關係，但不要停。",
-      "妳都走這麼遠了，現在當然要贏。",
-      "今天也漂亮地完成自己的任務。",
-      "上岸不是玄學，是妳每天一點一點堆出來的。",
-      "妳可以累，但妳不能低估自己。",
-      "今天的KPI：讀完，然後漂亮地睡覺。",
-      "這本書今天不被妳吃掉，很難收場。",
-      "未來的研究生本人，正在讀書中。",
-      "姐，這題不會，代表它今天有幸認識妳。",
-      "妳現在讀的每一小時，都會在考場還給妳。"
+      "這種進度，老師看到都要點頭。",
+      "姐妳真的有在變強。",
+      "今天也是未來研究生本人。",
+      "先不要焦慮，先讀。",
+      "妳現在讀的每一頁，都在幫未來的自己投票。",
+      "分醫所：準備迎接一下。",
+      "今天的妳很適合上榜。",
+      "慢慢讀沒關係，反正最後是妳拿到榜單。",
+      "妳的競爭對手現在可能還在滑手機。",
+      "把今天處理掉，明天自然會變簡單。",
+      "姐，這不是夢，是進度表。",
+      "讀書很煩，但沒上榜更煩。",
+      "妳現在累積的不是時數，是底氣。",
+      "再撐一下，妳會謝謝現在的自己。",
+      "有讀就是有賺。",
+      "今天也沒有放過任何一個不會的觀念。",
+      "妳可以累，但不能把自己交給擺爛。",
+      "上岸這件事，妳正在認真把它變成現實。",
+      "今天的任務很簡單：比昨天更接近一點。",
+      "研究生預備役，簽到。"
     ];
 
-
-    /* =====================================================
-       資料
-    ===================================================== */
-
-    let data = JSON.parse(
-      localStorage.getItem("studyDashboardData")
-    ) || {
-      totalHours: DEFAULT_TOTAL_HOURS,
-      examDate: DEFAULT_EXAM_DATE,
-      logs: [],
-      workouts: {}
-    };
-
-
-    /* =====================================================
-       初始化
-    ===================================================== */
-
-    document.addEventListener("DOMContentLoaded", () => {
-
-      document.getElementById("logDate").value =
-        getLocalDateString();
-
-      renderAll();
-
-    });
-
-
-    function renderAll() {
-
-      renderCountdown();
-      renderQuote();
-      renderProgress();
-      renderLogs();
-      renderFitness();
-      renderWeeklySummary();
-
-    }
-
-
-    /* =====================================================
-       儲存
-    ===================================================== */
-
-    function saveData() {
-
-      localStorage.setItem(
-        "studyDashboardData",
-        JSON.stringify(data)
-      );
-
-    }
-
-
-    /* =====================================================
-       日期工具
-    ===================================================== */
-
-    function getLocalDateString(date = new Date()) {
-
-      const year = date.getFullYear();
-      const month = String(date.getMonth() + 1).padStart(2, "0");
-      const day = String(date.getDate()).padStart(2, "0");
-
-      return `${year}-${month}-${day}`;
-
-    }
-
-
-    function formatDate(dateString) {
-
-      const [year, month, day] = dateString.split("-");
-
-      return `${year}/${month}/${day}`;
-
-    }
-
-
-    function getWeekStart(date = new Date()) {
-
-      const d = new Date(date);
-
-      const day = d.getDay();
-
-      const diff = day === 0 ? -6 : 1 - day;
-
-      d.setDate(d.getDate() + diff);
-
-      d.setHours(0,0,0,0);
-
-      return d;
-
-    }
-
-
-    function getWeekKey(date = new Date()) {
-
-      return getLocalDateString(
-        getWeekStart(date)
-      );
-
-    }
-
-
-    function getWeekDates() {
-
-      const start = getWeekStart();
-
-      const dates = [];
-
-      for (let i = 0; i < 7; i++) {
-
-        const d = new Date(start);
-
-        d.setDate(start.getDate() + i);
-
-        dates.push(getLocalDateString(d));
-
-      }
-
-      return dates;
-
-    }
-
-
-    /* =====================================================
-       倒數
-    ===================================================== */
-
-    function renderCountdown() {
-
-      const today = new Date();
-
-      today.setHours(0,0,0,0);
-
-      const exam = new Date(data.examDate + "T00:00:00");
-
-      const diff =
-        Math.ceil(
-          (exam - today) / (1000 * 60 * 60 * 24)
-        );
-
-      const number = document.getElementById("countdownNumber");
-
-      if (diff > 0) {
-
-        number.textContent = diff;
-
-      } else if (diff === 0) {
-
-        number.textContent = "0";
-
-      } else {
-
-        number.textContent = "∞";
-
-      }
-
-      document.getElementById("examDateDisplay").textContent =
-        formatDate(data.examDate);
-
-    }
-
-
-    /* =====================================================
-       每日小語
-       同一天固定同一句，不會重新整理就換掉
-    ===================================================== */
-
     function renderQuote() {
-
-      const today = getLocalDateString();
-
-      let hash = 0;
-
-      for (let i = 0; i < today.length; i++) {
-
-        hash =
-          ((hash << 5) - hash) +
-          today.charCodeAt(i);
-
-        hash |= 0;
-
-      }
-
-      const index =
-        Math.abs(hash) % quotes.length;
-
-      document.getElementById("dailyQuote").textContent =
-        quotes[index];
-
-      const now = new Date();
-
-      document.getElementById("quoteDate").textContent =
-        `${now.getFullYear()} · ${now.getMonth()+1} · ${now.getDate()}  /  今日限定`;
-
-    }
-
-
-    /* =====================================================
-       學習進度
-    ===================================================== */
-
-    function getCompletedHours() {
-
-      return data.logs.reduce(
-        (sum, log) => sum + Number(log.hours),
-        0
-      );
-
-    }
-
-
-    function renderProgress() {
-
-      const completed =
-        getCompletedHours();
-
-      const total =
-        Number(data.totalHours);
-
-      const remaining =
-        Math.max(total - completed, 0);
-
-      const percentage =
-        Math.min(
-          (completed / total) * 100,
-          100
-        );
-
-      document.getElementById("completedHours").textContent =
-        completed.toFixed(1);
-
-      document.getElementById("completedHoursSmall").textContent =
-        completed.toFixed(1);
-
-      document.getElementById("remainingHours").textContent =
-        remaining.toFixed(1);
-
-      document.getElementById("progressPercent").textContent =
-        percentage.toFixed(1) + "%";
-
-      document.getElementById("progressFill").style.width =
-        percentage + "%";
-
-      const today = getLocalDateString();
-
-      const todayLogs =
-        data.logs.filter(
-          log => log.date === today
-        );
-
-      const todayHours =
-        todayLogs.reduce(
-          (sum, log) => sum + Number(log.hours),
-          0
-        );
-
-      document.getElementById("todayLogged").textContent =
-        todayHours > 0
-          ? `${todayHours.toFixed(1)} hr`
-          : "尚未記錄";
-
-    }
-
-
-    function addTodayStudy() {
-
-      const input =
-        document.getElementById("todayHours");
-
-      const hours =
-        Number(input.value);
-
-      if (!hours || hours <= 0) {
-
-        showToast("先輸入今天讀了幾小時 ♡");
-
-        return;
-
-      }
 
       const today =
         getLocalDateString();
 
-      data.logs.push({
-        id: Date.now(),
-        date: today,
-        hours: hours
-      });
+      let hash = 0;
 
-      saveData();
+      for (
+        let i = 0;
+        i < today.length;
+        i++
+      ) {
 
-      input.value = "";
+        hash =
+          (
+            hash * 31 +
+            today.charCodeAt(i)
+          ) >>> 0;
 
-      renderAll();
+      }
 
-      showToast(`今天 +${hours} hr，漂亮。`);
+      const quote =
+        quotes[
+          hash % quotes.length
+        ];
+
+      document.getElementById(
+        "dailyQuote"
+      ).textContent = quote;
+
+      document.getElementById(
+        "quoteDate"
+      ).textContent =
+        today.replaceAll("-", " / ");
 
     }
 
-
     /* =====================================================
-       學習紀錄
-    ===================================================== */
+       CALENDAR
+       ===================================================== */
 
-    function addLog() {
+    function changeMonth(amount) {
 
-      const date =
-        document.getElementById("logDate").value;
+      calendarDate.setMonth(
+        calendarDate.getMonth() + amount
+      );
+
+      renderCalendar();
+
+    }
+
+    function goToCurrentMonth() {
+
+      calendarDate = new Date();
+
+      renderCalendar();
+
+    }
+
+    function renderCalendar() {
+
+      const year =
+        calendarDate.getFullYear();
+
+      const month =
+        calendarDate.getMonth();
+
+      const monthNames = [
+        "一月",
+        "二月",
+        "三月",
+        "四月",
+        "五月",
+        "六月",
+        "七月",
+        "八月",
+        "九月",
+        "十月",
+        "十一月",
+        "十二月"
+      ];
+
+      document.getElementById(
+        "calendarMonth"
+      ).textContent =
+        `${year} · ${monthNames[month]}`;
+
+      const grid =
+        document.getElementById(
+          "calendarGrid"
+        );
+
+      grid.innerHTML = "";
+
+      /*
+        JS 的 getDay():
+        0 = 星期日
+        1 = 星期一
+        ...
+        我們的月曆從星期一開始。
+      */
+
+      const firstDay =
+        new Date(
+          year,
+          month,
+          1
+        );
+
+      let startDay =
+        firstDay.getDay();
+
+      startDay =
+        startDay === 0
+          ? 6
+          : startDay - 1;
+
+      const daysInMonth =
+        new Date(
+          year,
+          month + 1,
+          0
+        ).getDate();
+
+      const prevDays =
+        new Date(
+          year,
+          month,
+          0
+        ).getDate();
+
+      const today =
+        getLocalDateString();
+
+      /*
+        一共顯示 42 格，
+        讓月曆高度穩定。
+      */
+
+      for (
+        let i = 0;
+        i < 42;
+        i++
+      ) {
+
+        let dayNumber;
+        let cellYear = year;
+        let cellMonth = month;
+        let otherMonth = false;
+
+        if (i < startDay) {
+
+          dayNumber =
+            prevDays -
+            startDay +
+            i +
+            1;
+
+          cellMonth =
+            month - 1;
+
+          if (cellMonth < 0) {
+            cellMonth = 11;
+            cellYear--;
+          }
+
+          otherMonth = true;
+
+        } else if (
+          i >=
+          startDay + daysInMonth
+        ) {
+
+          dayNumber =
+            i -
+            (startDay + daysInMonth) +
+            1;
+
+          cellMonth =
+            month + 1;
+
+          if (cellMonth > 11) {
+            cellMonth = 0;
+            cellYear++;
+          }
+
+          otherMonth = true;
+
+        } else {
+
+          dayNumber =
+            i - startDay + 1;
+
+        }
+
+        const dateString =
+          `${cellYear}-${String(
+            cellMonth + 1
+          ).padStart(2, "0")}-${String(
+            dayNumber
+          ).padStart(2, "0")}`;
+
+        const cell =
+          document.createElement("div");
+
+        cell.className =
+          "day" +
+          (otherMonth
+            ? " other-month"
+            : "") +
+          (dateString === today
+            ? " today"
+            : "");
+
+        const hours =
+          getHoursForDate(
+            dateString
+          );
+
+        const daily =
+          data.dailyProgress[
+            dateString
+          ];
+
+        const concepts =
+          data.concepts.filter(
+            concept =>
+              concept.date ===
+              dateString &&
+              concept.status === "pending"
+          );
+
+        const workout =
+          data.workouts[
+            dateString
+          ];
+
+        cell.innerHTML = `
+          <div class="day-number">
+            ${dayNumber}
+          </div>
+
+          ${
+            hours > 0
+              ? `
+                <div class="day-hours">
+                  📚 ${hours.toFixed(1)}h
+                </div>
+              `
+              : ""
+          }
+
+          ${
+            daily?.progress
+              ? `
+                <div class="day-progress">
+                  ${escapeHtml(
+                    daily.progress
+                  )}
+                </div>
+              `
+              : ""
+          }
+
+          <div class="day-dots">
+
+            ${
+              daily?.progress ||
+              daily?.note
+                ? `<span class="dot"></span>`
+                : ""
+            }
+
+            ${
+              concepts.length > 0
+                ? `<span class="dot yellow"></span>`
+                : ""
+            }
+
+            ${
+              workout
+                ? `<span class="dot green"></span>`
+                : ""
+            }
+
+          </div>
+        `;
+
+        cell.onclick = () =>
+          openDailyModal(
+            dateString
+          );
+
+        grid.appendChild(cell);
+
+      }
+
+    }
+
+    function openDailyModal(dateString) {
+
+      selectedDate =
+        dateString;
+
+      document.getElementById(
+        "dailyModalTitle"
+      ).textContent =
+        `📅 ${formatDate(dateString)}`;
+
+      document.getElementById(
+        "calendarHours"
+      ).value = "";
+
+      const existing =
+        data.dailyProgress[
+          dateString
+        ] || {};
+
+      document.getElementById(
+        "calendarProgress"
+      ).value =
+        existing.progress || "";
+
+      document.getElementById(
+        "calendarNote"
+      ).value =
+        existing.note || "";
+
+      const existingHours =
+        getHoursForDate(
+          dateString
+        );
+
+      const conceptCount =
+        data.concepts.filter(
+          c =>
+            c.date === dateString &&
+            c.status === "pending"
+        ).length;
+
+      const workout =
+        data.workouts[
+          dateString
+        ];
+
+      document.getElementById(
+        "selectedDateSummary"
+      ).innerHTML = `
+        📚 已記錄讀書：
+        <strong>
+          ${existingHours.toFixed(1)} 小時
+        </strong>
+        <br>
+        🧠 待釐清觀念：
+        <strong>
+          ${conceptCount} 個
+        </strong>
+        <br>
+        🏋🏻‍♀️ 運動：
+        <strong>
+          ${workout ? "完成 ✓" : "尚未紀錄"}
+        </strong>
+      `;
+
+      document.getElementById(
+        "dailyModal"
+      ).classList.add("show");
+
+    }
+
+    function saveDailyRecord() {
+
+      if (!selectedDate) {
+        return;
+      }
 
       const hours =
         Number(
-          document.getElementById("logHours").value
+          document.getElementById(
+            "calendarHours"
+          ).value
         );
 
-      if (!date || !hours || hours <= 0) {
+      const progress =
+        document.getElementById(
+          "calendarProgress"
+        ).value.trim();
 
-        showToast("日期和時數都要填喔 ♡");
+      const note =
+        document.getElementById(
+          "calendarNote"
+        ).value.trim();
+
+      if (hours > 0) {
+
+        addStudyLog(
+          selectedDate,
+          hours
+        );
+
+      }
+
+      if (
+        progress ||
+        note
+      ) {
+
+        data.dailyProgress[
+          selectedDate
+        ] = {
+          progress,
+          note
+        };
+
+      } else {
+
+        delete data.dailyProgress[
+          selectedDate
+        ];
+
+      }
+
+      saveData();
+
+      closeModal(
+        "dailyModal"
+      );
+
+      renderAll();
+
+      showToast(
+        "這一天也被妳好好記下來了 ♡"
+      );
+
+    }
+
+    /* =====================================================
+       CONCEPTS
+       ===================================================== */
+
+    function openConceptModal() {
+
+      const quickTitle =
+        document.getElementById(
+          "conceptTitle"
+        ).value.trim();
+
+      document.getElementById(
+        "conceptModalTitle"
+      ).value =
+        quickTitle;
+
+      document.getElementById(
+        "conceptModalContent"
+      ).value = "";
+
+      document.getElementById(
+        "conceptModal"
+      ).classList.add("show");
+
+    }
+
+    function saveConcept() {
+
+      const title =
+        document.getElementById(
+          "conceptModalTitle"
+        ).value.trim();
+
+      const content =
+        document.getElementById(
+          "conceptModalContent"
+        ).value.trim();
+
+      const category =
+        document.getElementById(
+          "conceptCategory"
+        ).value;
+
+      if (!title) {
+
+        showToast(
+          "先寫一下妳到底哪裡不會 😭"
+        );
 
         return;
 
       }
 
-      data.logs.push({
-        id: Date.now(),
-        date: date,
-        hours: hours
+      data.concepts.unshift({
+
+        id:
+          Date.now() +
+          Math.random(),
+
+        date:
+          getLocalDateString(),
+
+        title,
+
+        content,
+
+        category,
+
+        status: "pending",
+
+        resolvedAt: null
+
       });
+
+      document.getElementById(
+        "conceptTitle"
+      ).value = "";
 
       saveData();
 
-      document.getElementById("logHours").value = "";
+      closeModal(
+        "conceptModal"
+      );
 
-      renderAll();
+      renderConcepts();
 
-      showToast("學習紀錄已存好 ♡");
+      renderCalendar();
+
+      showToast(
+        "加入待釐清！不要讓它跑掉 🧠"
+      );
 
     }
 
+    function resolveConcept(id) {
+
+      const concept =
+        data.concepts.find(
+          c => c.id === id
+        );
+
+      if (!concept) {
+        return;
+      }
+
+      concept.status =
+        "done";
+
+      concept.resolvedAt =
+        getLocalDateString();
+
+      saveData();
+
+      renderConcepts();
+
+      renderCalendar();
+
+      showToast(
+        "觀念已釐清 ✓ 姐又少一個洞。"
+      );
+
+    }
+
+    function reopenConcept(id) {
+
+      const concept =
+        data.concepts.find(
+          c => c.id === id
+        );
+
+      if (!concept) {
+        return;
+      }
+
+      concept.status =
+        "pending";
+
+      concept.resolvedAt =
+        null;
+
+      saveData();
+
+      renderConcepts();
+
+      renderCalendar();
+
+      showToast(
+        "這個觀念又回來了，重新處理 😭"
+      );
+
+    }
+
+    function deleteConcept(id) {
+
+      const ok =
+        confirm(
+          "確定要刪掉這個觀念紀錄嗎？"
+        );
+
+      if (!ok) {
+        return;
+      }
+
+      data.concepts =
+        data.concepts.filter(
+          c => c.id !== id
+        );
+
+      saveData();
+
+      renderConcepts();
+
+      renderCalendar();
+
+    }
+
+    function renderConcepts() {
+
+      const active =
+        data.concepts.filter(
+          c =>
+            c.status === "pending"
+        );
+
+      const history =
+        data.concepts.filter(
+          c =>
+            c.status === "done"
+        );
+
+      const activeBox =
+        document.getElementById(
+          "activeConcepts"
+        );
+
+      if (active.length === 0) {
+
+        activeBox.innerHTML = `
+          <div class="empty">
+            ✨ 暫時沒有觀念誤區。
+            <br>
+            這很好，但不要亂裝會。
+          </div>
+        `;
+
+      } else {
+
+        activeBox.innerHTML =
+          active.map(
+            renderConceptItem
+          ).join("");
+
+      }
+
+      const historyBox =
+        document.getElementById(
+          "conceptHistory"
+        );
+
+      if (history.length === 0) {
+
+        historyBox.innerHTML = `
+          <div class="empty">
+            還沒有已釐清紀錄。
+          </div>
+        `;
+
+      } else {
+
+        historyBox.innerHTML =
+          history
+            .map(
+              renderConceptItem
+            )
+            .join("");
+
+      }
+
+    }
+
+    function renderConceptItem(concept) {
+
+      const done =
+        concept.status === "done";
+
+      return `
+        <div class="concept-item">
+
+          <div class="concept-top">
+
+            <div>
+
+              <div class="concept-title">
+                ${escapeHtml(
+                  concept.title
+                )}
+              </div>
+
+              <div class="concept-date">
+                ${formatDate(
+                  concept.date
+                )}
+                ·
+                ${escapeHtml(
+                  concept.category || "其他"
+                )}
+              </div>
+
+            </div>
+
+            <span class="status-badge ${
+              done ? "done" : ""
+            }">
+              ${
+                done
+                  ? "已釐清 ✓"
+                  : "待釐清"
+              }
+            </span>
+
+          </div>
+
+          ${
+            concept.content
+              ? `
+                <div class="concept-content">
+                  ${escapeHtml(
+                    concept.content
+                  )}
+                </div>
+              `
+              : ""
+          }
+
+          ${
+            done
+              ? `
+                <div style="font-size:10px;color:#79907d;margin-top:7px;">
+                  釐清日期：
+                  ${formatDate(
+                    concept.resolvedAt
+                  )}
+                </div>
+              `
+              : ""
+          }
+
+          <div class="concept-actions">
+
+            ${
+              done
+                ? `
+                  <button
+                    class="btn btn-light btn-small"
+                    onclick="reopenConcept(${concept.id})"
+                  >
+                    ↩ 重新釐清
+                  </button>
+                `
+                : `
+                  <button
+                    class="btn btn-green btn-small"
+                    onclick="resolveConcept(${concept.id})"
+                  >
+                    ✓ 我懂了
+                  </button>
+                `
+            }
+
+            <button
+              class="btn btn-danger btn-small"
+              onclick="deleteConcept(${concept.id})"
+            >
+              刪除
+            </button>
+
+          </div>
+
+        </div>
+      `;
+
+    }
+
+    let showHistory = false;
+
+    function toggleConceptHistory() {
+
+      showHistory =
+        !showHistory;
+
+      const box =
+        document.getElementById(
+          "conceptHistory"
+        );
+
+      const button =
+        document.getElementById(
+          "historyToggle"
+        );
+
+      box.style.display =
+        showHistory
+          ? "flex"
+          : "none";
+
+      button.textContent =
+        showHistory
+          ? "收起已釐清紀錄 ↑"
+          : "查看已釐清紀錄 ↓";
+
+    }
+
+    /* =====================================================
+       FITNESS
+       ===================================================== */
+
+    function renderFitness() {
+
+      const dates =
+        getWeekDates();
+
+      const labels = [
+        "週一",
+        "週二",
+        "週三",
+        "週四",
+        "週五",
+        "週六",
+        "週日"
+      ];
+
+      const count =
+        dates.filter(
+          d => data.workouts[d]
+        ).length;
+
+      document.getElementById(
+        "workoutCount"
+      ).textContent =
+        count;
+
+      document.getElementById(
+        "fitnessCountBig"
+      ).textContent =
+        count;
+
+      const box =
+        document.getElementById(
+          "fitnessChecklist"
+        );
+
+      box.innerHTML =
+        dates.map(
+          (date, index) => {
+
+            const checked =
+              !!data.workouts[date];
+
+            return `
+              <label
+                class="fitness-day ${
+                  checked ? "checked" : ""
+                }"
+              >
+
+                <input
+                  type="checkbox"
+                  ${
+                    checked
+                      ? "checked"
+                      : ""
+                  }
+                  onchange="updateFitness('${date}', this.checked)"
+                >
+
+                <span>
+                  ${labels[index]}
+                  <br>
+                  <small>
+                    ${date.slice(5).replace("-", "/")}
+                  </small>
+                </span>
+
+                ${
+                  checked
+                    ? "<strong style='margin-left:auto;'>✓</strong>"
+                    : ""
+                }
+
+              </label>
+            `;
+
+          }
+        ).join("");
+
+    }
+
+    function updateFitness(
+      date,
+      checked
+    ) {
+
+      if (checked) {
+
+        data.workouts[
+          date
+        ] = true;
+
+      } else {
+
+        delete data.workouts[
+          date
+        ];
+
+      }
+
+      saveData();
+
+      renderFitness();
+
+      renderCalendar();
+
+    }
+
+    /* =====================================================
+       VOCABULARY
+       ===================================================== */
+
+    const vocabulary = [
+
+      {
+        word: "rigorous",
+        pos: "adj.",
+        meaning: "嚴謹的；嚴格的",
+        pronunciation: "/ˈrɪɡərəs/",
+        example:
+          "The study used a rigorous methodology.",
+        zh:
+          "這項研究採用了嚴謹的方法。"
+      },
+
+      {
+        word: "prevalent",
+        pos: "adj.",
+        meaning: "普遍的；盛行的",
+        pronunciation: "/ˈprevələnt/",
+        example:
+          "The disease is prevalent among older adults.",
+        zh:
+          "這種疾病在老年人中很普遍。"
+      },
+
+      {
+        word: "substantial",
+        pos: "adj.",
+        meaning: "大量的；重大的",
+        pronunciation: "/səbˈstænʃəl/",
+        example:
+          "The treatment produced substantial improvements.",
+        zh:
+          "這項治療帶來了顯著的改善。"
+      },
+
+      {
+        word: "elucidate",
+        pos: "v.",
+        meaning: "闡明；解釋清楚",
+        pronunciation: "/ɪˈluːsɪdeɪt/",
+        example:
+          "Further research is needed to elucidate the mechanism.",
+        zh:
+          "需要進一步研究來闡明其機制。"
+      },
+
+      {
+        word: "empirical",
+        pos: "adj.",
+        meaning: "實證的；以觀察或實驗為基礎的",
+        pronunciation: "/ɪmˈpɪrɪkəl/",
+        example:
+          "The theory is supported by empirical evidence.",
+        zh:
+          "這項理論受到實證證據的支持。"
+      },
+
+      {
+        word: "facilitate",
+        pos: "v.",
+        meaning: "促進；使更容易",
+        pronunciation: "/fəˈsɪləteɪt/",
+        example:
+          "Exercise can facilitate recovery.",
+        zh:
+          "運動可以促進恢復。"
+      },
+
+      {
+        word: "inhibit",
+        pos: "v.",
+        meaning: "抑制；阻礙",
+        pronunciation: "/ɪnˈhɪbɪt/",
+        example:
+          "The drug inhibits bacterial growth.",
+        zh:
+          "這種藥物會抑制細菌生長。"
+      },
+
+      {
+        word: "coherent",
+        pos: "adj.",
+        meaning: "連貫的；有條理的",
+        pronunciation: "/koʊˈhɪrənt/",
+        example:
+          "The researcher presented a coherent argument.",
+        zh:
+          "研究者提出了一套有條理的論點。"
+      },
+
+      {
+        word: "discrepancy",
+        pos: "n.",
+        meaning: "差異；不一致",
+        pronunciation: "/dɪˈskrepənsi/",
+        example:
+          "The researchers found a discrepancy between the two results.",
+        zh:
+          "研究人員發現兩項結果之間存在差異。"
+      },
+
+      {
+        word: "hypothesis",
+        pos: "n.",
+        meaning: "假說；假設",
+        pronunciation: "/haɪˈpɑːθəsɪs/",
+        example:
+          "The experiment was designed to test the hypothesis.",
+        zh:
+          "這項實驗是為了驗證該假說。"
+      },
+
+      {
+        word: "mitigate",
+        pos: "v.",
+        meaning: "減輕；緩和",
+        pronunciation: "/ˈmɪtɪɡeɪt/",
+        example:
+          "Early treatment may mitigate the symptoms.",
+        zh:
+          "及早治療可能減輕症狀。"
+      },
+
+      {
+        word: "consecutive",
+        pos: "adj.",
+        meaning: "連續的；接連的",
+        pronunciation: "/kənˈsekjətɪv/",
+        example:
+          "The patient had a fever for three consecutive days.",
+        zh:
+          "病人連續三天發燒。"
+      },
+
+      {
+        word: "underlying",
+        pos: "adj.",
+        meaning: "潛在的；根本的",
+        pronunciation: "/ˌʌndərˈlaɪɪŋ/",
+        example:
+          "Doctors must identify the underlying cause.",
+        zh:
+          "醫師必須找出潛在原因。"
+      },
+
+      {
+        word: "correlate",
+        pos: "v.",
+        meaning: "相關；有關聯",
+        pronunciation: "/ˈkɔːrəleɪt/",
+        example:
+          "Sleep duration may correlate with academic performance.",
+        zh:
+          "睡眠時間可能與學業表現相關。"
+      },
+
+      {
+        word: "allocate",
+        pos: "v.",
+        meaning: "分配；撥給",
+        pronunciation: "/ˈæləkeɪt/",
+        example:
+          "Students should allocate enough time for revision.",
+        zh:
+          "學生應該分配足夠時間複習。"
+      },
+
+      {
+        word: "controversial",
+        pos: "adj.",
+        meaning: "有爭議的",
+        pronunciation: "/ˌkɑːntrəˈvɜːrʃəl/",
+        example:
+          "The findings remain controversial.",
+        zh:
+          "這項研究結果仍具有爭議性。"
+      },
+
+      {
+        word: "exacerbate",
+        pos: "v.",
+        meaning: "使惡化；加劇",
+        pronunciation: "/ɪɡˈzæsərbeɪt/",
+        example:
+          "Stress may exacerbate the symptoms.",
+        zh:
+          "壓力可能使症狀惡化。"
+      },
+
+      {
+        word: "intervention",
+        pos: "n.",
+        meaning: "介入；干預措施",
+        pronunciation: "/ˌɪntərˈvenʃən/",
+        example:
+          "Early intervention can improve outcomes.",
+        zh:
+          "早期介入可以改善結果。"
+      },
+
+      {
+        word: "significant",
+        pos: "adj.",
+        meaning: "顯著的；重要的",
+        pronunciation: "/sɪɡˈnɪfɪkənt/",
+        example:
+          "The treatment resulted in a significant reduction in symptoms.",
+        zh:
+          "治療使症狀顯著降低。"
+      },
+
+      {
+        word: "subsequent",
+        pos: "adj.",
+        meaning: "後續的；隨後的",
+        pronunciation: "/ˈsʌbsɪkwənt/",
+        example:
+          "Subsequent studies confirmed the initial findings.",
+        zh:
+          "後續研究證實了最初的發現。"
+      },
+
+      {
+        word: "ambiguous",
+        pos: "adj.",
+        meaning: "模稜兩可的；不明確的",
+        pronunciation: "/æmˈbɪɡjuəs/",
+        example:
+          "The results were ambiguous and required further investigation.",
+        zh:
+          "結果並不明確，需要進一步調查。"
+      },
+
+      {
+        word: "preliminary",
+        pos: "adj.",
+        meaning: "初步的",
+        pronunciation: "/prɪˈlɪməneri/",
+        example:
+          "The preliminary results are promising.",
+        zh:
+          "初步結果令人期待。"
+      },
+
+      {
+        word: "adverse",
+        pos: "adj.",
+        meaning: "不利的；不良的",
+        pronunciation: "/ˈædvɜːrs/",
+        example:
+          "The medication may cause adverse effects.",
+        zh:
+          "這種藥物可能造成不良反應。"
+      },
+
+      {
+        word: "comprehensive",
+        pos: "adj.",
+        meaning: "全面的；綜合的",
+        pronunciation: "/ˌkɑːmprɪˈhensɪv/",
+        example:
+          "The review provides a comprehensive overview of the topic.",
+        zh:
+          "這篇回顧提供了該主題的全面概述。"
+      },
+
+      {
+        word: "constrain",
+        pos: "v.",
+        meaning: "限制；約束",
+        pronunciation: "/kənˈstreɪn/",
+        example:
+          "Limited resources constrained the study.",
+        zh:
+          "有限的資源限制了這項研究。"
+      },
+
+      {
+        word: "derive",
+        pos: "v.",
+        meaning: "獲得；源自",
+        pronunciation: "/dɪˈraɪv/",
+        example:
+          "The researchers derived the conclusion from the data.",
+        zh:
+          "研究人員從數據中得出結論。"
+      },
+
+      {
+        word: "demonstrate",
+        pos: "v.",
+        meaning: "證明；展示",
+        pronunciation: "/ˈdemənstreɪt/",
+        example:
+          "The results demonstrate the effectiveness of the treatment.",
+        zh:
+          "結果證明了治療的有效性。"
+      },
+
+      {
+        word: "consistent",
+        pos: "adj.",
+        meaning: "一致的；前後一致的",
+        pronunciation: "/kənˈsɪstənt/",
+        example:
+          "The findings are consistent with previous research.",
+        zh:
+          "研究結果與先前研究一致。"
+      },
+
+      {
+        word: "preclude",
+        pos: "v.",
+        meaning: "排除；使不可能",
+        pronunciation: "/prɪˈkluːd/",
+        example:
+          "The small sample size precludes a definite conclusion.",
+        zh:
+          "樣本數太小，因此無法得出確定結論。"
+      },
+
+      {
+        word: "preliminary",
+        pos: "adj.",
+        meaning: "初步的；預備性的",
+        pronunciation: "/prɪˈlɪməneri/",
+        example:
+          "These are only preliminary findings.",
+        zh:
+          "這些目前只是初步研究結果。"
+      },
+
+      {
+        word: "notwithstanding",
+        pos: "prep./adv.",
+        meaning: "儘管；雖然如此",
+        pronunciation: "/ˌnɑːtwɪθˈstændɪŋ/",
+        example:
+          "Notwithstanding these limitations, the study is valuable.",
+        zh:
+          "儘管有這些限制，這項研究仍具有價值。"
+      }
+
+    ];
+
+    function renderVocabulary() {
+
+      const today =
+        getLocalDateString();
+
+      let hash = 0;
+
+      for (
+        let i = 0;
+        i < today.length;
+        i++
+      ) {
+
+        hash =
+          (
+            hash * 31 +
+            today.charCodeAt(i)
+          ) >>> 0;
+
+      }
+
+      const word =
+        vocabulary[
+          hash % vocabulary.length
+        ];
+
+      document.getElementById(
+        "vocabContent"
+      ).innerHTML = `
+
+        <div class="vocab-tag">
+          IELTS / TOEFL HIGH FREQUENCY
+        </div>
+
+        <div class="word">
+          ${word.word}
+        </div>
+
+        <div class="pronunciation">
+          ${word.pronunciation}
+          ·
+          ${word.pos}
+        </div>
+
+        <div class="meaning">
+          ${word.meaning}
+        </div>
+
+        <div class="example">
+
+          <div>
+            ${word.example}
+          </div>
+
+          <div class="example-zh">
+            ${word.zh}
+          </div>
+
+        </div>
+
+        <div class="vocab-note">
+          ♡ 每天一個，不求多，求真的記得。
+        </div>
+
+      `;
+
+    }
+
+    /* =====================================================
+       DAILY PROGRESS
+       ===================================================== */
+
+    function renderTodayProgress() {
+
+      const today =
+        getLocalDateString();
+
+      const hours =
+        getHoursForDate(today);
+
+      const record =
+        data.dailyProgress[
+          today
+        ];
+
+      const concepts =
+        data.concepts.filter(
+          c =>
+            c.date === today &&
+            c.status === "pending"
+        );
+
+      const workout =
+        data.workouts[
+          today
+        ];
+
+      document.getElementById(
+        "todayProgressDisplay"
+      ).innerHTML = `
+
+        <div style="
+          display:grid;
+          grid-template-columns:repeat(3,1fr);
+          gap:8px;
+          margin-bottom:12px;
+        ">
+
+          <div style="
+            background:#fff6f8;
+            border-radius:11px;
+            padding:11px;
+          ">
+            <div style="font-size:10px;color:#9b858d;">
+              讀書
+            </div>
+
+            <strong style="color:#b94f75;">
+              ${hours.toFixed(1)}h
+            </strong>
+          </div>
+
+          <div style="
+            background:#fff9eb;
+            border-radius:11px;
+            padding:11px;
+          ">
+            <div style="font-size:10px;color:#9b858d;">
+              待釐清
+            </div>
+
+            <strong style="color:#9b7c38;">
+              ${concepts.length}
+            </strong>
+          </div>
+
+          <div style="
+            background:#eef6ef;
+            border-radius:11px;
+            padding:11px;
+          ">
+            <div style="font-size:10px;color:#78917d;">
+              運動
+            </div>
+
+            <strong style="color:#5f7e65;">
+              ${workout ? "✓" : "—"}
+            </strong>
+          </div>
+
+        </div>
+
+        ${
+          record?.progress
+            ? `
+              <div style="
+                padding:10px 12px;
+                border-left:3px solid #e1a1b6;
+                background:#fffafa;
+                font-size:12px;
+                margin-bottom:8px;
+              ">
+                <strong>今日進度</strong>
+                <br>
+                ${escapeHtml(
+                  record.progress
+                )}
+              </div>
+            `
+            : `
+              <div class="empty">
+                今天還沒有寫進度。
+                <br>
+                點上面的月曆日期開始記錄。
+              </div>
+            `
+        }
+
+        ${
+          record?.note
+            ? `
+              <div style="
+                font-size:11px;
+                color:#81747a;
+                padding-top:4px;
+              ">
+                ♡ ${escapeHtml(
+                  record.note
+                )}
+              </div>
+            `
+            : ""
+        }
+
+      `;
+
+    }
+
+    /* =====================================================
+       LOG HISTORY
+       ===================================================== */
+
+    function renderLogs() {
+
+      const box =
+        document.getElementById(
+          "logList"
+        );
+
+      if (data.logs.length === 0) {
+
+        box.innerHTML = `
+          <div class="empty">
+            還沒有讀書紀錄。
+            <br>
+            開始讀第一個小時吧 ♡
+          </div>
+        `;
+
+        return;
+      }
+
+      const sorted =
+        [...data.logs]
+          .sort(
+            (a, b) =>
+              b.date.localeCompare(
+                a.date
+              )
+          );
+
+      box.innerHTML =
+        sorted.map(
+          log => `
+
+            <div class="log-item">
+
+              <div>
+                <div class="log-date">
+                  ${formatDate(
+                    log.date
+                  )}
+                </div>
+
+                <div style="
+                  font-size:11px;
+                  color:#9b8b91;
+                ">
+                  讀書紀錄
+                </div>
+              </div>
+
+              <div style="
+                display:flex;
+                align-items:center;
+                gap:9px;
+              ">
+
+                <span class="log-hours">
+                  +${Number(
+                    log.hours
+                  ).toFixed(1)} hr
+                </span>
+
+                <button
+                  class="btn btn-danger btn-small"
+                  onclick="deleteLog(${log.id})"
+                >
+                  ×
+                </button>
+
+              </div>
+
+            </div>
+
+          `
+        ).join("");
+
+    }
 
     function deleteLog(id) {
+
+      const ok =
+        confirm(
+          "確定刪除這筆讀書紀錄嗎？"
+        );
+
+      if (!ok) {
+        return;
+      }
 
       data.logs =
         data.logs.filter(
@@ -1341,379 +3475,278 @@
 
       renderAll();
 
-      showToast("這筆紀錄已刪除。");
+      showToast(
+        "已刪除這筆紀錄。"
+      );
 
     }
 
+    /* =====================================================
+       SETTINGS
+    ===================================================== */
 
-    function renderLogs() {
+    function openSettings() {
 
-      const container =
-        document.getElementById("logContainer");
+      document.getElementById(
+        "settingsExamDate"
+      ).value =
+        data.examDate;
 
-      if (data.logs.length === 0) {
+      document.getElementById(
+        "settingsTotalHours"
+      ).value =
+        data.totalHours;
 
-        container.innerHTML = `
-          <div class="empty-log">
-            還沒有紀錄。<br>
-            今天開始寫第一筆吧 ♡
-          </div>
-        `;
+      document.getElementById(
+        "settingsModal"
+      ).classList.add("show");
+
+    }
+
+    function saveSettings() {
+
+      const date =
+        document.getElementById(
+          "settingsExamDate"
+        ).value;
+
+      const total =
+        Number(
+          document.getElementById(
+            "settingsTotalHours"
+          ).value
+        );
+
+      if (!date) {
+
+        showToast(
+          "請選擇考試日期。"
+        );
 
         return;
 
       }
 
-      const sorted =
-        [...data.logs].sort(
-          (a,b) =>
-            new Date(b.date) -
-            new Date(a.date)
+      if (!total || total <= 0) {
+
+        showToast(
+          "總課程時數要大於 0。"
         );
-
-      let html = `
-        <table class="log-table">
-          <thead>
-            <tr>
-              <th>日期</th>
-              <th>讀書時數</th>
-              <th>備註</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-      `;
-
-      sorted.forEach(log => {
-
-        html += `
-          <tr>
-            <td>${formatDate(log.date)}</td>
-            <td>
-              <strong>${Number(log.hours).toFixed(1)} hr</strong>
-            </td>
-            <td style="color:#999;">
-              ${isToday(log.date) ? "今天的戰績" : "學習紀錄"}
-            </td>
-            <td style="text-align:right;">
-              <button
-                class="delete-btn"
-                onclick="deleteLog(${log.id})"
-              >
-                刪除
-              </button>
-            </td>
-          </tr>
-        `;
-
-      });
-
-      html += `
-          </tbody>
-        </table>
-      `;
-
-      container.innerHTML = html;
-
-    }
-
-
-    function isToday(dateString) {
-
-      return dateString ===
-        getLocalDateString();
-
-    }
-
-
-    /* =====================================================
-       健身
-    ===================================================== */
-
-    function renderFitness() {
-
-      const weekKey =
-        getWeekKey();
-
-      const workouts =
-        data.workouts[weekKey] ||
-        [false, false, false];
-
-      for (let i = 0; i < 3; i++) {
-
-        document.getElementById(
-          `workout${i+1}`
-        ).checked =
-          workouts[i] || false;
-
-      }
-
-      updateFitness(false);
-
-      const start =
-        getWeekStart();
-
-      const end =
-        new Date(start);
-
-      end.setDate(
-        end.getDate() + 6
-      );
-
-      document.getElementById("weekRange").textContent =
-        `${start.getMonth()+1}/${start.getDate()}–${end.getMonth()+1}/${end.getDate()}`;
-
-    }
-
-
-    function updateFitness(shouldSave = true) {
-
-      const weekKey =
-        getWeekKey();
-
-      const workouts = [
-        document.getElementById("workout1").checked,
-        document.getElementById("workout2").checked,
-        document.getElementById("workout3").checked
-      ];
-
-      data.workouts[weekKey] =
-        workouts;
-
-      if (shouldSave) {
-        saveData();
-      }
-
-      const count =
-        workouts.filter(Boolean).length;
-
-      document.getElementById("fitnessCount").textContent =
-        count;
-
-      const status =
-        document.getElementById("fitnessStatus");
-
-      if (count >= 3) {
-
-        status.textContent =
-          "本週達標 👑 姐你真的有在管理人生。";
-
-        status.classList.add("done");
-
-      } else if (count === 2) {
-
-        status.textContent =
-          "還差一練，收尾一下就達標。";
-
-        status.classList.remove("done");
-
-      } else if (count === 1) {
-
-        status.textContent =
-          "第一練完成，繼續維持。";
-
-        status.classList.remove("done");
-
-      } else {
-
-        status.textContent =
-          "還差一點，姐，去練。";
-
-        status.classList.remove("done");
-
-      }
-
-      renderWeeklySummary();
-
-    }
-
-
-    /* =====================================================
-       本週統計
-    ===================================================== */
-
-    function renderWeeklySummary() {
-
-      const weekDates =
-        getWeekDates();
-
-      const weeklyLogs =
-        data.logs.filter(
-          log =>
-            weekDates.includes(log.date)
-        );
-
-      const hours =
-        weeklyLogs.reduce(
-          (sum, log) =>
-            sum + Number(log.hours),
-          0
-        );
-
-      const uniqueDays =
-        new Set(
-          weeklyLogs.map(
-            log => log.date
-          )
-        ).size;
-
-      const weekKey =
-        getWeekKey();
-
-      const workouts =
-        data.workouts[weekKey] ||
-        [false, false, false];
-
-      const workoutCount =
-        workouts.filter(Boolean).length;
-
-      document.getElementById("weeklyHours").textContent =
-        hours.toFixed(1);
-
-      document.getElementById("weeklyDays").textContent =
-        uniqueDays;
-
-      document.getElementById("weeklyWorkouts").textContent =
-        workoutCount;
-
-    }
-
-
-    /* =====================================================
-       設定
-    ===================================================== */
-
-    function openSettings() {
-
-      document.getElementById("examDateInput").value =
-        data.examDate;
-
-      document.getElementById("totalHoursInput").value =
-        data.totalHours;
-
-      document.getElementById("settingsModal")
-        .classList.add("show");
-
-    }
-
-
-    function closeSettings() {
-
-      document.getElementById("settingsModal")
-        .classList.remove("show");
-
-    }
-
-
-    function saveSettings() {
-
-      const examDate =
-        document.getElementById("examDateInput").value;
-
-      const totalHours =
-        Number(
-          document.getElementById("totalHoursInput").value
-        );
-
-      if (!examDate || !totalHours || totalHours <= 0) {
-
-        showToast("設定資料不完整。");
 
         return;
 
       }
 
       data.examDate =
-        examDate;
+        date;
 
       data.totalHours =
-        totalHours;
+        total;
 
       saveData();
 
-      closeSettings();
+      closeModal(
+        "settingsModal"
+      );
 
       renderAll();
 
-      showToast("作戰設定更新完成 ♡");
+      showToast(
+        "計畫設定已更新 ♡"
+      );
 
     }
-
-
-    /* =====================================================
-       清除資料
-    ===================================================== */
 
     function resetAllData() {
 
-      const confirmed =
+      const first =
         confirm(
-          "確定要清除全部學習紀錄和健身紀錄嗎？\n這個動作不能復原。"
+          "真的要清除全部資料嗎？"
         );
 
-      if (!confirmed) {
+      if (!first) {
         return;
       }
 
-      data = {
-        totalHours: DEFAULT_TOTAL_HOURS,
-        examDate: DEFAULT_EXAM_DATE,
-        logs: [],
-        workouts: {}
-      };
+      const second =
+        confirm(
+          "這會刪除讀書紀錄、運動、觀念誤區與每日進度，確定？"
+        );
+
+      if (!second) {
+        return;
+      }
+
+      localStorage.removeItem(
+        STORAGE_KEY
+      );
+
+      data =
+        structuredClone(
+          DEFAULT_DATA
+        );
 
       saveData();
 
-      closeSettings();
+      closeModal(
+        "settingsModal"
+      );
 
       renderAll();
 
-      showToast("全部資料已重置。");
+      showToast(
+        "資料已全部清除。"
+      );
 
     }
 
-
     /* =====================================================
-       Toast
+       MODALS
     ===================================================== */
 
-    let toastTimer;
+    function closeModal(id) {
+
+      document
+        .getElementById(id)
+        .classList.remove("show");
+
+    }
+
+    document
+      .querySelectorAll(".modal-overlay")
+      .forEach(
+        overlay => {
+
+          overlay.addEventListener(
+            "click",
+            event => {
+
+              if (
+                event.target ===
+                overlay
+              ) {
+
+                overlay.classList.remove(
+                  "show"
+                );
+
+              }
+
+            }
+          );
+
+        }
+      );
+
+    document.addEventListener(
+      "keydown",
+      event => {
+
+        if (
+          event.key === "Escape"
+        ) {
+
+          document
+            .querySelectorAll(
+              ".modal-overlay.show"
+            )
+            .forEach(
+              modal =>
+                modal.classList.remove(
+                  "show"
+                )
+            );
+
+        }
+
+      }
+    );
+
+    /* =====================================================
+       UTIL
+    ===================================================== */
+
+    function escapeHtml(value) {
+
+      if (
+        value === undefined ||
+        value === null
+      ) {
+        return "";
+      }
+
+      return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+    }
 
     function showToast(message) {
 
       const toast =
-        document.getElementById("toast");
+        document.getElementById(
+          "toast"
+        );
 
       toast.textContent =
         message;
 
-      toast.classList.add("show");
+      toast.classList.add(
+        "show"
+      );
 
-      clearTimeout(toastTimer);
+      clearTimeout(
+        window.toastTimer
+      );
 
-      toastTimer =
-        setTimeout(() => {
+      window.toastTimer =
+        setTimeout(
+          () => {
 
-          toast.classList.remove("show");
+            toast.classList.remove(
+              "show"
+            );
 
-        }, 2200);
+          },
+          2300
+        );
 
     }
 
-
     /* =====================================================
-       點擊 Modal 外部關閉
+       RENDER ALL
     ===================================================== */
 
-    document
-      .getElementById("settingsModal")
-      .addEventListener("click", function(e) {
+    function renderAll() {
 
-        if (e.target === this) {
-          closeSettings();
-        }
+      renderCountdown();
 
-      });
+      renderQuote();
+
+      renderProgress();
+
+      renderCalendar();
+
+      renderFitness();
+
+      renderConcepts();
+
+      renderVocabulary();
+
+      renderTodayProgress();
+
+      renderLogs();
+
+    }
+
+    /* =====================================================
+       INITIALIZE
+    ===================================================== */
+
+    renderAll();
 
   </script>
 
